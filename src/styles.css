@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.pagination .page-link {
+  color: #212529; /* Texte en gris */
+  background-color: #f8f9fa; /* Fond gris clair */
+  border: 1px solid gray; /* Bordure grise */
+}
+
+.pagination .page-link:hover {
+  color: white;
+  background-color: gray;
+  border-color: gray;
+}
+
+.pagination .active .page-link {
+  background-color: gray;
+  border-color: gray;
+  color: white;
+}

@@ -1,0 +1,55 @@
+<br />
+<h1 style="text-align: center">Generic Table</h1>
+<br />
+<table
+  class="table table-bordered table-secondary"
+  style="width: 90%; margin-left: 5%"
+>
+  <thead class="table-dark">
+    <tr>
+      <th
+        style="width: 20%"
+        scope="col"
+        *ngFor="let col of columns"
+        (click)="colSorting(col.key)"
+      >
+        {{ col.label }} {{ sign }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of paginationTable">
+      <td *ngFor="let col of columns">{{ item[col.key] }}</td>
+    </tr>
+  </tbody>
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a
+        class="page-link"
+        aria-label="Previous"
+        (click)="pageclicked(currentPage - 1)"
+      >
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li
+      *ngFor="let page of pages"
+      class="page-item"
+      [ngClass]="{ active: page == currentPage }"
+      (click)="pageclicked(page)"
+    >
+      <a class="page-link">{{ page }}</a>
+    </li>
+    <li class="page-item">
+      <a
+        class="page-link"
+        aria-label="Next"
+        (click)="pageclicked(currentPage + 1)"
+      >
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
