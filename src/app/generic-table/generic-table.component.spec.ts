@@ -37,10 +37,14 @@ describe('GenericTableComponent', () => {
     component.pagination();
     //refresh the display
     fixture.detectChanges();
+    //get acces to dom with debugElement
+    // queryAllsearches within the component's DOM for elements that match a
+    // specific CSS selector return an array
+    //by.css create a selector
     const rows = fixture.debugElement.queryAll(By.css('tbody tr'));
     expect(rows.length).toBe(2); //expecting to have two items = two rows
-    expect(rows[0].nativeElement.textContent).toContain('1Item1');
-    expect(rows[1].nativeElement.textContent).toContain('2Item2');
+    expect(rows[0].nativeElement.textContent).toContain('Item1');
+    expect(rows[1].nativeElement.textContent).toContain('Item2');
   });
 
   it('should get headers correctly', () => {
@@ -69,8 +73,8 @@ describe('GenericTableComponent', () => {
     fixture.detectChanges();
 
     const rows = fixture.debugElement.queryAll(By.css('tbody tr'));
-    expect(rows[0].nativeElement.textContent).toContain('1Item1'); //check if item 1 is  displayed before item 2
-    expect(rows[1].nativeElement.textContent).toContain('2Item2');
+    expect(rows[0].nativeElement.textContent).toContain('Item1'); //check if item 1 is  displayed before item 2
+    expect(rows[1].nativeElement.textContent).toContain('Item2');
   });
 
   it('should paginate correctly', () => {
